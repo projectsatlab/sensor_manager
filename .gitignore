@@ -1,0 +1,22 @@
+# Ignora gli eseguibili
+*.out
+a.out
+test.out
+
+# Ignora i file di compilazione di C
+*.o
+*.obj
+
+# Ignora i file di log
+*.log
+
+# Ignora la cartella di compilazione (ad esempio "build")
+build/
+
+# Ignora i file di configurazione temporanei
+*.swp
+*.bak
+*.tmp
+
+# Ignora tutti i file elencati qui sotto
+config.json
