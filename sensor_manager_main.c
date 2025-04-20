@@ -99,7 +99,7 @@ void sht21DisplayValues(struct samples *itemPtr, const char *_token, const char 
 	apiPostServerWrite(_token, _deviceId, payloadBuffer);
 }
 
-int remoteSensorDecode(char *buffer, struct samples *itemPtr) {
+int sht21RemoteSensorDecode(char *buffer, struct samples *itemPtr) {
 
 	if (!strcmp(readJson("type", buffer), "SHT21")) {
 		itemPtr->rawTempValue = atoi(readJson("temp", buffer));
@@ -162,7 +162,7 @@ uint8_t doubleCheck = 0;
 				memset(buffer, 0, 1024);
 
 				remoteSensorGet("SHT21", buffer);
-				remoteSensorDecode(buffer, samplesMainPtr);
+				sht21RemoteSensorDecode(buffer, samplesMainPtr);
 			#else
 				sht21GetValues(currentTime, samplesMainPtr);
 			#endif
